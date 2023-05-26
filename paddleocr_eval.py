@@ -90,6 +90,13 @@ if __name__ == "__main__":
                             args.dataset_name + '.report.txt')
     shell_execute.run(cmd, print_to_console=True)
 
+    cmd = 'accci'
+    for report_file in accuracy_report_files:
+        cmd += ' %s' % report_file
+    cmd += ' >' + os.path.join(os.getcwd(), ocr_engine + '.accci.%s' %
+                            args.dataset_name + '.report.txt')
+    shell_execute.run(cmd, print_to_console=True)
+
     cmd = 'wordaccsum'
     for report_file in wordacc_report_files:
         cmd += ' %s' % report_file
