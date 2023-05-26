@@ -34,7 +34,7 @@ if __name__ == "__main__":
         os.makedirs(report_dir)
 
     # If you don't have tesseract executable in your PATH, include the following:
-    pytesseract.pytesseract.tesseract_cmd = r'/usr/local/Cellar/tesseract/5.3.1/bin/tesseract'
+    pytesseract.pytesseract.tesseract_cmd = 'tesseract'
     # lang = 'chi_sim'
     lang = 'eng'
     # 列出 imgs_dir 目录下扩展名为 .jpg 或 .png 或 .tif 的文件
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         """
         This set of traineddata files has support for both the legacy recognizer with --oem 0 and for LSTM models with --oem 1 
         """
-        ocr_result = pytesseract.image_to_string(Image.open(img), lang=lang, config='--oem 0 --tessdata-dir /Users/binhua_jiang/mywork/tesseract/tessdata/')
+        ocr_result = pytesseract.image_to_string(Image.open(img), lang=lang, config='--oem 0 --tessdata-dir ./tessdata/')
         output_file = os.path.join(os.getcwd(), output_dir, os.path.splitext(
             os.path.basename(img))[0] + '.txt')
         # print(output_file)
