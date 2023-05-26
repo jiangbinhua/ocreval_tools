@@ -12,12 +12,17 @@ $ pip install -r requirements.txt
 $ git clone git@github.com:tesseract-ocr/tessdata.git ./tessdata
 ```
 
-3. 运行脚本，评测`tesseract`（--oem 0, 传统算法）的识别正确率
+3. 安装`ocreval`评测工具
+```
+$ brew install ocrevel
+```
+
+4. 运行脚本，评测`tesseract`（--oem 0, 传统算法）的识别正确率
 ```
 $ python tesseract_eval.py --dataset-name=bus.3A
 ```
 
-4. 运行脚本，评测`PaddleOCR`的识别正确率
+5. 运行脚本，评测`PaddleOCR`的识别正确率
 ```
 $ python paddleocr_eval.py --dataset-name=bus.3A
 ```
