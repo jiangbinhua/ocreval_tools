@@ -59,8 +59,9 @@ if __name__ == "__main__":
         """
         ocr_result = pytesseract.image_to_string(Image.open(img), lang=lang, config='--oem %s --tessdata-dir ./tessdata/' % args.oem)
 
-        #删除字符串 ocr_result 中的空格字符
-        ocr_result = ocr_result.replace(' ', '')
+        if lang == 'chi_sim':
+            #删除字符串 ocr_result 中的空格字符
+            ocr_result = ocr_result.replace(' ', '')
 
         output_file = os.path.join(os.getcwd(), output_dir, os.path.splitext(
             os.path.basename(img))[0] + '.txt')

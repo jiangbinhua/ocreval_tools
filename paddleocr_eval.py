@@ -59,9 +59,10 @@ if __name__ == "__main__":
         for line in result[0]:
             # print(type(line))
             # print(json.dumps(line, ensure_ascii=False, indent=4))
-            #删除字符串 line_text 中的空格字符
             line_text = line[1][0]
-            line_text = line_text.replace(' ', '')
+            if lang == 'ch': 
+                #删除字符串 line_text 中的空格字符
+                line_text = line_text.replace(' ', '')
             ocr_result.append(line_text + '\n')
 
         output_file = os.path.join(os.getcwd(), output_dir, os.path.splitext(
